@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
           margin: EdgeInsets.all(16),
           height: 400,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20), color: const Color.fromARGB(255, 238, 112, 112)),
+              borderRadius: BorderRadius.circular(20), border: Border.all()),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -98,11 +98,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      if (isCounterEnabled) {
-                        _incrementCounter();
-                      }
-                    },
+                    onPressed: isCounterEnabled
+                        ? () {
+                            _incrementCounter();
+                          }
+                        : null, 
                     child: const Icon(Icons.add),
                   ),
                 ],
